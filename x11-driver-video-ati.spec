@@ -1,6 +1,7 @@
 Name: x11-driver-video-ati
 Version: 6.6.3
 Release: %mkrel 1
+Epoch: 1
 Summary: The X.org driver for ATI Technologies
 Group: System/X11
 URL: http://xorg.freedesktop.org
