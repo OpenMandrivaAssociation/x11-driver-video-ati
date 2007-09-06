@@ -53,7 +53,7 @@ rm -rf %{buildroot}
 %{_libdir}/xorg/modules/multimedia/theatre_detect_drv.so
 %{_libdir}/xorg/modules/multimedia/theatre_drv.la
 %{_libdir}/xorg/modules/multimedia/theatre_drv.so
-%{_mandir}/man4/r128.4.bz2
-%{_mandir}/man4/ati.4.bz2
-%{_mandir}/man4/radeon.4.bz2
+%{_mandir}/man4/r128.*
+%{_mandir}/man4/ati.*
+%{_mandir}/man4/radeon.*
 
