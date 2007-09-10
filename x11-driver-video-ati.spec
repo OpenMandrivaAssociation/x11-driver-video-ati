@@ -1,6 +1,6 @@
 Name: x11-driver-video-ati
 Version: 6.6.3
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Summary: The X.org driver for ATI Technologies
 Group: System/X11
@@ -16,6 +16,7 @@ BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: GL-devel
 
 Conflicts: xorg-x11-server < 7.0
+Conflicts: x11-driver-video-ati_6.7
 
 %description
 The X.org driver for ATI Technologies
