@@ -7,8 +7,6 @@ Group: System/X11
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
 
-Patch0:	0001-MobilityDefaultsToLCD.diff
-
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -27,7 +25,6 @@ The X.org driver for ATI Technologies
 
 %prep
 %setup -q -n xf86-video-ati-%{version}
-%patch0 -p1 -b .MobilityDefaultsToLCD
 
 %build
 %configure2_5x	--x-includes=%{_includedir}\
