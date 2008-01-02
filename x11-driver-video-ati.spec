@@ -28,14 +28,6 @@ Conflicts: x11-driver-video-ati_6.7
 %description
 The X.org driver for ATI Technologies
 
-%package devel
-Summary: Development files for %{name}
-Group: Development/X11
-License: MIT
-
-%description devel
-Development files for %{name}
-
 %prep
 %setup -q -n xf86-video-ati-%{version}
 
@@ -49,11 +41,7 @@ autoreconf -ifs
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-# Create list of dependencies
-x-check-deps.pl
-for deps in *.deps; do
-    install -D -m 644 $deps %{buildroot}/%{_datadir}/X11/mandriva/$deps
-done
+rm -f %{buildroot}/%{_libdir}/xorg/modules/drivers/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -70,9 +58,3 @@ rm -rf %{buildroot}
 %{_mandir}/man4/r128.*
 %{_mandir}/man4/ati.*
 %{_mandir}/man4/radeon.*
-
-%files devel
-%defattr(-,root,root)
-%{_libdir}/xorg/modules/drivers/*.la
-%{_libdir}/xorg/modules/multimedia/*.la
-%{_datadir}/X11/mandriva/*.deps
