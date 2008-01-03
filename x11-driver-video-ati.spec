@@ -20,7 +20,6 @@ BuildRequires: libdrm-devel >= 2.0
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
 BuildRequires: x11-util-macros >= 1.1.5-4mdk
-BuildRequires: x11-util-modular
 BuildRequires: GL-devel
 Conflicts: xorg-x11-server < 7.0
 Conflicts: x11-driver-video-ati_6.7
@@ -42,6 +41,7 @@ autoreconf -ifs
 rm -rf %{buildroot}
 %makeinstall_std
 rm -f %{buildroot}/%{_libdir}/xorg/modules/drivers/*.la
+rm -f %{buildroot}/%{_libdir}/xorg/modules/multimedia/*.la
 
 %clean
 rm -rf %{buildroot}
