@@ -15,6 +15,7 @@ License: MIT
 ########################################################################
 # git-format-patch xf86-video-ati-6.7.196..origin/mandriva+gpl
 Patch1: 0001-Update-for-new-policy-of-hidden-symbols-and-common-m.patch
+Patch2: 0002-Fix-several-symbol-export-problems-due-to-only-acc.patch
 ########################################################################
 BuildRequires: libdrm-devel >= 2.0
 BuildRequires: x11-proto-devel >= 1.0.0
@@ -31,6 +32,7 @@ The X.org driver for ATI Technologies
 %setup -q -n xf86-video-ati-%{version}
 
 %patch1 -p1
+%patch2 -p1
 
 %build
 autoreconf -ifs
