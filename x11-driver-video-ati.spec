@@ -1,8 +1,8 @@
 %define debug_package	%{nil}
 
 Name: x11-driver-video-ati
-Version: 6.7.196
-Release: %mkrel 2
+Version: 6.7.197
+Release: %mkrel 1
 Epoch: 1
 Summary: The X.org driver for ATI Technologies
 Group: System/X11
@@ -10,18 +10,16 @@ URL: http://xorg.freedesktop.org
 ########################################################################
 # git clone git://git.mandriva.com/people/pcpa/xorg/drivers/xf86-video-ati xorg/drivers/xf86-video-ati
 # cd xorg/drivers/xf86-video/ati
-# git-archive --format=tar --prefix=xf86-video-ati-6.7.196/ xf86-video-ati-6.7.196 | bzip2 -9 > xf86-video-ati-6.7.196.tar.bz2
+# git-archive --format=tar --prefix=xf86-video-ati-6.7.197/ xf86-video-ati-6.7.197 | bzip2 -9 > xf86-video-ati-6.7.197.tar.bz2
 ########################################################################
 Source0: xf86-video-ati-%{version}.tar.bz2
 License: MIT
 ########################################################################
-# git-format-patch xf86-video-ati-6.7.196..origin/mandriva+gpl
+# git-format-patch xf86-video-ati-6.7.197..origin/mandriva+gpl
 Patch1: 0001-Update-for-new-policy-of-hidden-symbols-and-common-m.patch
 Patch2: 0002-Fix-several-symbol-export-problems-due-to-only-acc.patch
 ########################################################################
 BuildRequires: x11-util-macros >= 1.1.5-4mdk
-#BuildRequires: gcc-4.2.2-2mdv2008.1
-#BuildRequires: glibc-devel-2.7-1mdv2008.1
 BuildRequires: libdrm-devel		>= 2.3.0
 BuildRequires: libpixman-1-devel	>= 0.9.6
 BuildRequires: x11-proto-devel		>= 7.3
