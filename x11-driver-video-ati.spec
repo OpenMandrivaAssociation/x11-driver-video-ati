@@ -19,14 +19,13 @@ License: MIT
 Patch1: 0001-Update-for-new-policy-of-hidden-symbols-and-common-m.patch
 Patch2: 0002-Fix-several-symbol-export-problems-due-to-only-acc.patch
 ########################################################################
-BuildRequires: x11-util-macros >= 1.1.5-4mdk
+BuildRequires: x11-util-macros		>= 1.1.5-4mdk
 BuildRequires: libdrm-devel		>= 2.3.0
 BuildRequires: libpixman-1-devel	>= 0.9.6
 BuildRequires: x11-proto-devel		>= 7.3
 BuildRequires: libmesagl-devel		>= 7.0.2
 BuildRequires: x11-server-devel		>= 1.4
 
-BuildRequires: GL-devel
 Conflicts: xorg-x11-server < 7.0
 Conflicts: x11-driver-video-ati_6.7
 
