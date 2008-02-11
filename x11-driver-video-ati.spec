@@ -1,6 +1,6 @@
 Name: x11-driver-video-ati
 Version: 6.7.197
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch: 1
 Summary: The X.org driver for ATI Technologies
 Group: System/X11
@@ -19,12 +19,22 @@ BuildRequires: GL-devel
 Conflicts: xorg-x11-server < 7.0
 Conflicts: x11-driver-video-ati_6.7
 
+Patch1: 0001-radeon-Adapt-manpage-to-reality-wrt-AGP-options.patch
+Patch2: 0002-Seems-the-default-is-more-reliable.-we-can-t-win.patch
+Patch3: 0003-RADEON-update-man-page-to-reflect-AGP-1x-default-re.patch
+Patch4: 0004-Try-to-find-a-suitable-default-output-if-no-connecte.patch
+
 %description
 The X.org driver for ATI Technologies
 
 
 %prep
 %setup -q -n xf86-video-ati-%{version}
+
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 %configure
