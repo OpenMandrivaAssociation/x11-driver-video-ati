@@ -1,6 +1,6 @@
 Name: x11-driver-video-ati
-Version: 6.7.197
-Release: %mkrel 6
+Version: 6.8.0
+Release: %mkrel 1
 Epoch: 1
 Summary: The X.org driver for ATI Technologies
 Group: System/X11
@@ -19,22 +19,12 @@ BuildRequires: GL-devel
 Conflicts: xorg-x11-server < 7.0
 Conflicts: x11-driver-video-ati_6.7
 
-Patch1: 0001-radeon-Adapt-manpage-to-reality-wrt-AGP-options.patch
-Patch2: 0002-Seems-the-default-is-more-reliable.-we-can-t-win.patch
-Patch3: 0003-RADEON-update-man-page-to-reflect-AGP-1x-default-re.patch
-Patch4: 0004-Try-to-find-a-suitable-default-output-if-no-connecte.patch
-
 %description
 The X.org driver for ATI Technologies
 
 
 %prep
 %setup -q -n xf86-video-ati-%{version}
-
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
 %configure
@@ -53,10 +43,10 @@ rm -rf %{buildroot}
 %{_libdir}/xorg/modules/drivers/radeon_drv.so
 %{_libdir}/xorg/modules/drivers/r128_drv.la
 %{_libdir}/xorg/modules/drivers/r128_drv.so
-%{_libdir}/xorg/modules/drivers/atimisc_drv.la
-%{_libdir}/xorg/modules/drivers/atimisc_drv.so
 %{_libdir}/xorg/modules/drivers/ati_drv.la
 %{_libdir}/xorg/modules/drivers/ati_drv.so
+%{_libdir}/xorg/modules/drivers/mach64_drv.la
+%{_libdir}/xorg/modules/drivers/mach64_drv.so
 %{_libdir}/xorg/modules/multimedia/theatre200_drv.la
 %{_libdir}/xorg/modules/multimedia/theatre200_drv.so
 %{_libdir}/xorg/modules/multimedia/theatre_detect_drv.la
