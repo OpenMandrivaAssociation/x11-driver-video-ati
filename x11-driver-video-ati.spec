@@ -20,7 +20,7 @@ Conflicts: xorg-x11-server < 7.0
 Conflicts: x11-driver-video-ati_6.7
 
 %description
-The X.org driver for ATI Technologies.
+x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 
 %prep
