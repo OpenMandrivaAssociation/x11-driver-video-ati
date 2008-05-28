@@ -2,7 +2,7 @@ Name: x11-driver-video-ati
 Version: 6.8.0
 Release: %mkrel 1
 Epoch: 1
-Summary: The X.org driver for ATI Technologies
+Summary: X.org driver for ATI Technologies
 Group: System/X11
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
