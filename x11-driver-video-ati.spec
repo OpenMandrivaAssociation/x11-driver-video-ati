@@ -1,5 +1,5 @@
 Name: x11-driver-video-ati
-Version: 6.8.0
+Version: 6.8.191
 Release: %mkrel 1
 Epoch: 1
 Summary: X.org driver for ATI Technologies
@@ -41,18 +41,13 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/xorg/modules/drivers/radeon_drv.la
 %{_libdir}/xorg/modules/drivers/radeon_drv.so
-%{_libdir}/xorg/modules/drivers/r128_drv.la
-%{_libdir}/xorg/modules/drivers/r128_drv.so
 %{_libdir}/xorg/modules/drivers/ati_drv.la
 %{_libdir}/xorg/modules/drivers/ati_drv.so
-%{_libdir}/xorg/modules/drivers/mach64_drv.la
-%{_libdir}/xorg/modules/drivers/mach64_drv.so
 %{_libdir}/xorg/modules/multimedia/theatre200_drv.la
 %{_libdir}/xorg/modules/multimedia/theatre200_drv.so
 %{_libdir}/xorg/modules/multimedia/theatre_detect_drv.la
 %{_libdir}/xorg/modules/multimedia/theatre_detect_drv.so
 %{_libdir}/xorg/modules/multimedia/theatre_drv.la
 %{_libdir}/xorg/modules/multimedia/theatre_drv.so
-%{_mandir}/man4/r128.*
 %{_mandir}/man4/ati.*
 %{_mandir}/man4/radeon.*
