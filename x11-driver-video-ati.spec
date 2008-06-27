@@ -1,5 +1,5 @@
 Name: x11-driver-video-ati
-Version: 6.8.192
+Version: 6.9.0
 Release: %mkrel 1
 Epoch: 1
 Summary: X.org driver for ATI Technologies
