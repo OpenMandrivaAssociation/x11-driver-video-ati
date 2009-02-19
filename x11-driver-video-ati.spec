@@ -1,5 +1,5 @@
 Name: x11-driver-video-ati
-Version: 6.10.0
+Version: 6.11.0
 Release: %mkrel 1
 Epoch: 1
 Summary: X.org driver for ATI Technologies
@@ -30,7 +30,8 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 %setup -q -n xf86-video-ati-%{version}
 
 %build
-%configure
+autoreconf -ifs
+%configure2_5x
 %make
 
 %install
