@@ -1,6 +1,6 @@
 Name: x11-driver-video-ati
 Version: 6.12.2
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
@@ -22,12 +22,15 @@ Conflicts: x11-driver-video-ati_6.7
 Suggests: x11-driver-video-r128
 Suggests: x11-driver-video-mach64
 
+Patch1: 0001-AVIVO-fix-cursor-corruption.patch
+
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 
 %prep
 %setup -q -n xf86-video-ati-%{version}
+%patch1 -p1
 
 %build
 autoreconf -ifs
