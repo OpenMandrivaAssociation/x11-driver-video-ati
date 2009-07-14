@@ -1,6 +1,8 @@
+%define git_url git://anongit.freedesktop.org/xorg/driver/xf86-video-ati 6.12-branch
+
 Name: x11-driver-video-ati
 Version: 6.12.2
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
@@ -23,6 +25,7 @@ Suggests: x11-driver-video-r128
 Suggests: x11-driver-video-mach64
 
 Patch1: xf86-video-ati-6.12.2-branch-6.12.patch
+Patch2: xf86-video-ati-6.12.2-switch-to-EXA-by-default.patch
 
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
@@ -30,7 +33,7 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 %prep
 %setup -q -n xf86-video-ati-%{version}
-%patch1 -p1
+%apply_patches
 
 %build
 autoreconf -ifs
