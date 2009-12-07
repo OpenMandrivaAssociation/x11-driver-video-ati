@@ -2,7 +2,7 @@
 
 Name: x11-driver-video-ati
 Version: 6.12.4
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
@@ -25,6 +25,8 @@ Suggests: x11-driver-video-r128
 Suggests: x11-driver-video-mach64
 
 Patch2: xf86-video-ati-6.12.2-switch-to-EXA-by-default.patch
+# prevents segfaults with server 1.7.3 (fd.o #25495):
+Patch3: xf86-video-ati-6.12.4-exa-check-pictures.patch
 
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
