@@ -1,5 +1,10 @@
 %define git_url git://anongit.freedesktop.org/xorg/driver/xf86-video-ati 6.12-branch
 
+# When updating this driver, please update ldetect-lst with new pci ids.
+# for example:
+# merge2pcitable.pl ati_pciids_csv src/pcidb/ati_pciids.csv pcitable > pcitable.new
+# - Anssi
+
 Name: x11-driver-video-ati
 Version: 6.13.0
 Release: %mkrel 1
