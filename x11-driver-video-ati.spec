@@ -1,5 +1,3 @@
-%define git_url git://anongit.freedesktop.org/xorg/driver/xf86-video-ati 6.12-branch
-
 # When updating this driver, please update ldetect-lst with new pci ids.
 # for example:
 # merge2pcitable.pl ati_pciids_csv src/pcidb/ati_pciids.csv pcitable > pcitable.new
@@ -7,12 +5,14 @@
 
 Name: x11-driver-video-ati
 Version: 6.13.0
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
+# Backported from git:
+Patch0: 0001-fix-pll_out_min-default-for-pre-avivo.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
