@@ -11,8 +11,6 @@ Summary: X.org driver for ATI Technologies
 Group: System/X11
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
-# Backported from git:
-Patch0: 0001-fix-pll_out_min-default-for-pre-avivo.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
