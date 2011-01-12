@@ -5,7 +5,7 @@
 
 Name: x11-driver-video-ati
 Version: 6.13.2
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
@@ -20,6 +20,7 @@ BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
 BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: GL-devel
+BuildRequires: libudev-devel
 
 Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
 
