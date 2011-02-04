@@ -4,8 +4,8 @@
 # - Anssi
 
 Name: x11-driver-video-ati
-Version: 6.13.2
-Release: %mkrel 5
+Version: 6.14.0
+Release: %mkrel 1
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
