@@ -5,12 +5,13 @@
 
 Name: x11-driver-video-ati
 Version: 6.14.0
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Summary: X.org driver for ATI Technologies
 Group: System/X11
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
+Patch0: xf86-video-ati-UMS_DCE3.2-fix-segfault.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
