@@ -6,16 +6,20 @@
 Name: x11-driver-video-ati
 Epoch: 1
 Version: 6.14.4
-Release: 1
+Release: 2
 Summary: X.org driver for ATI Technologies
 Group: System/X11
 License: MIT
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
+# Abort the build if we can't build in KMS/DRI2 support.
+# Better to fail the build than to get a non-working driver!
+Patch: xf86-video-ati-6.14.4-error-on-no-kms.patch
 
-BuildRequires: pkgconfig(libdrm) >= 2.0
+BuildRequires: pkgconfig(libdrm) >= 2.4.33
+BuildRequires: pkgconfig(libdrm_radeon) >= 2.4.33
 BuildRequires: x11-proto-devel >= 1.0.0
-BuildRequires: x11-server-devel >= 1.0.1
+BuildRequires: x11-server-devel >= 1.6.2
 BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: pkgconfig(gl)
 BuildRequires: x11-server-devel >= 1.12
