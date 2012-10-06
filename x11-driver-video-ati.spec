@@ -20,7 +20,7 @@ BuildRequires:	pkgconfig(libdrm) >= 2.4.36
 BuildRequires:	pkgconfig(libdrm_radeon) >= 2.4.36
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
-BuildRequires:	pkgconfig(x11-server) >= 1.13
+BuildRequires:	pkgconfig(xorg-server) >= 1.13
 BuildRequires:	pkgconfig(gl)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
