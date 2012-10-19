@@ -6,7 +6,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	6.14.6
-Release:	4
+Release:	3
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -48,7 +48,6 @@ autoconf
 
 %install
 %makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %files
 %{_libdir}/xorg/modules/drivers/radeon_drv.so
