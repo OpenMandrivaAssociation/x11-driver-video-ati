@@ -6,7 +6,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	6.14.6
-Release:	3
+Release:	4
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
