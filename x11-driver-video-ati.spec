@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(gl)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
+Requires:		udev
 %else
 BuildRequires:	pkgconfig(udev)
 %endif
