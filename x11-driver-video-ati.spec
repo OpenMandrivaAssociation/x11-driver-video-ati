@@ -1,3 +1,4 @@
+%global _disable_ld_no_undefined 1
 # When updating this driver, please update ldetect-lst with new pci ids.
 # for example:
 # merge2pcitable.pl ati_pciids_csv src/pcidb/ati_pciids.csv pcitable > pcitable.new
@@ -5,9 +6,9 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	7.0.0
+Version:	7.1.0
 #Release:	0.201210910.1
-Release:	4
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
