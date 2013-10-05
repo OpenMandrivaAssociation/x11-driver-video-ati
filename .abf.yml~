@@ -1,4 +1,4 @@
 removed_sources:
-  xf86-video-ati-7.0.0.tar.bz2: 4e62a574b66a5071cbbfa1c67442938b42d11b43
-sources:
   xf86-video-ati-7.1.0.tar.bz2: f94730e5ffc5f75fa3126579bed0222fe8330653
+sources:
+  xf86-video-ati-7.2.0.tar.bz2: 2b11e423506f1f967d4bb6be0ff1277c24332b68
