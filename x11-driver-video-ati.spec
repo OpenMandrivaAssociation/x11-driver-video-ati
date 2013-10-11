@@ -8,7 +8,7 @@ Name:		x11-driver-video-ati
 Epoch:		1
 Version:	7.2.0
 #Release:	0.201210910.1
-Release:	1
+Release:	2
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -21,6 +21,7 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glamor)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
 Requires:		udev
@@ -47,7 +48,7 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 %build
 autoreconf -iv
-%configure2_5x --disable-static
+%configure2_5x --disable-static --enable-glamor
 %make
 
 %install
