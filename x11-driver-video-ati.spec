@@ -6,14 +6,13 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	7.3.99
-Release:	0.20140521.2
+Version:	7.4.0
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
-# ce1b745dcb60dc516ad999756240b78e72a7aa54
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.xz
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
 BuildRequires:	pkgconfig(libdrm) >= 2.4.54
 BuildRequires:	pkgconfig(libdrm_radeon) >= 2.4.54
 BuildRequires:	x11-proto-devel >= 1.0.0
