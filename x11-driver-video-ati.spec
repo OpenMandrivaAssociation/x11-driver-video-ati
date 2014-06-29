@@ -7,7 +7,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	7.4.0
-Release:	1
+Release:	2
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -46,6 +46,11 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 %build
 autoreconf -iv
+# FIXME
+# As of 7.4.0, clang 3.5-0.211571.1, the X server crashes on startup
+# if x11-driver-video-ati is built with clang
+export CC=gcc
+export CXX=g++
 %configure --disable-static --enable-glamor
 %make
 
