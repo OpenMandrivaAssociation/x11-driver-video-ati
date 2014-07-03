@@ -6,9 +6,9 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	7.3.0
+Version:	7.4.0
 #Release:	0.201210910.1
-Release:	2
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -35,8 +35,8 @@ Suggests:	x11-driver-video-r128
 Suggests:	x11-driver-video-mach64
 Suggests:	radeon-firmware
 
-Patch10:    radeon-6.12.2-lvds-default-modes.patch
-Patch13:    fix-default-modes.patch
+Patch10:	radeon-6.12.2-lvds-default-modes.patch
+Patch13:	fix-default-modes.patch
 
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
