@@ -6,8 +6,8 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	7.4.0
-Release:	4
+Version:	7.5.0
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -22,7 +22,7 @@ BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glamor)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
-Requires:	udev
+Requires:		udev
 %else
 BuildRequires:	pkgconfig(udev)
 %endif
@@ -33,8 +33,8 @@ Suggests:	x11-driver-video-r128
 Suggests:	x11-driver-video-mach64
 Suggests:	radeon-firmware
 
-Patch10:    radeon-6.12.2-lvds-default-modes.patch
-Patch13:    fix-default-modes.patch
+Patch10:	radeon-6.12.2-lvds-default-modes.patch
+Patch13:	fix-default-modes.patch
 
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
@@ -68,5 +68,3 @@ rm -rf %{buildroot}%{moduledir}/multimedia/
 #%{_libdir}/xorg/modules/multimedia/theatre_drv.so
 %{_mandir}/man4/ati.*
 %{_mandir}/man4/radeon.*
-
-
