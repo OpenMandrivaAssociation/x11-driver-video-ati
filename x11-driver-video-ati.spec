@@ -35,6 +35,10 @@ Suggests:	radeon-firmware
 
 Patch10:	radeon-6.12.2-lvds-default-modes.patch
 Patch13:	fix-default-modes.patch
+# (tpg) this is needed to get VDPAU works out of box
+Requires:	%{_lib}vdpau-driver-r600
+Requires:	%{_lib}vdpau-driver-radeonsi
+Requires:	%{_lib}dri-drivers-radeon
 
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
