@@ -19,6 +19,7 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(xorg-server) >= 1.12
 BuildRequires:	pkgconfig(gl)
+BuildRequires: pkgconfig(glamor)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
 Requires:		udev
