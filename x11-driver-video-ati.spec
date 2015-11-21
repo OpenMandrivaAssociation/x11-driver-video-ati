@@ -7,7 +7,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	7.6.1
-Release:	1
+Release:	3
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -17,7 +17,7 @@ BuildRequires:	pkgconfig(libdrm) >= 2.4.54
 BuildRequires:	pkgconfig(libdrm_radeon) >= 2.4.54
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
-BuildRequires:	pkgconfig(xorg-server) >= 1.12
+BuildRequires:	pkgconfig(xorg-server) >= 1.18
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(udev) >= 186
 Requires:	udev
