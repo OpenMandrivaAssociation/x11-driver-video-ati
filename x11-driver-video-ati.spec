@@ -7,7 +7,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	7.6.1
-Release:	3
+Release:	4
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -48,8 +48,10 @@ autoreconf -iv
 # FIXME
 # As of 7.4.0, clang 3.5-0.211571.1, the X server crashes on startup
 # if x11-driver-video-ati is built with clang
-export CC=gcc
-export CXX=g++
+# (tpg) let's try with clang
+#export CC=gcc
+#export CXX=g++
+
 %configure --disable-static --enable-glamor
 %make
 
