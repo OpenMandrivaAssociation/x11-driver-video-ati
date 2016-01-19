@@ -7,7 +7,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	7.6.1
-Release:	4
+Release:	5
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -24,8 +24,6 @@ Requires:	udev
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Conflicts:	xorg-x11-server < 7.0
 Conflicts:	x11-driver-video-ati_6.7
-Suggests:	x11-driver-video-r128
-Suggests:	x11-driver-video-mach64
 Suggests:	radeon-firmware
 
 Patch10:	radeon-6.12.2-lvds-default-modes.patch
