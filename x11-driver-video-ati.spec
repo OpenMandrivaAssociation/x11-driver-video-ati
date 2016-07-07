@@ -4,15 +4,17 @@
 # merge2pcitable.pl ati_pciids_csv src/pcidb/ati_pciids.csv pcitable > pcitable.new
 # - Anssi
 
+%define gitdate 20160707
+
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	7.7.1
-Release:	0.20160525.1
+Release:	0.%{gitdate}.1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-7.7.1-%{gitdate}.tar.xz
 BuildRequires:	pkgconfig(libdrm) >= 2.4.54
 BuildRequires:	pkgconfig(libdrm_radeon) >= 2.4.54
 BuildRequires:	x11-proto-devel >= 1.0.0
@@ -37,7 +39,7 @@ Requires:	%{_lib}dri-drivers-radeon
 x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 %prep
-%setup -qn xf86-video-ati-%{version}
+%setup -qn xf86-video-ati-%{version}-%{gitdate}
 %patch10 -p1 -b .lvds
 %patch13 -p1 -b .def
 libtoolize --force
