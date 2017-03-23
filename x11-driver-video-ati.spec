@@ -61,8 +61,6 @@ rm -rf %{buildroot}%{moduledir}/multimedia/
 %files
 %{_libdir}/xorg/modules/drivers/radeon_drv.so
 %{_libdir}/xorg/modules/drivers/ati_drv.so
-#%{_libdir}/xorg/modules/multimedia/theatre200_drv.so
-#%{_libdir}/xorg/modules/multimedia/theatre_detect_drv.so
-#%{_libdir}/xorg/modules/multimedia/theatre_drv.so
+%{_datadir}/X11/xorg.conf.d/10-radeon.conf
 %{_mandir}/man4/ati.*
 %{_mandir}/man4/radeon.*
