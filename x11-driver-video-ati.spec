@@ -8,7 +8,7 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	18.0.1
+Version:	18.1.0
 Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
@@ -50,10 +50,10 @@ autoconf
 
 %build
 %configure --disable-static --enable-glamor
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # these only work in UMS, which is not supported
 rm -rf %{buildroot}%{moduledir}/multimedia/
