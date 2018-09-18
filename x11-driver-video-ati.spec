@@ -22,6 +22,7 @@ BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(xorg-server) >= 1.18
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(udev) >= 186
+BuildRequires:	pkgconfig(dbm)
 Requires:	udev
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Conflicts:	xorg-x11-server < 7.0
