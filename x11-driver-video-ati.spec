@@ -8,8 +8,8 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	18.1.0
-Release:	2
+Version:	19.0.0
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -31,6 +31,10 @@ Suggests:	radeon-firmware
 
 Patch10:	radeon-6.12.2-lvds-default-modes.patch
 Patch13:	fix-default-modes.patch
+# Glitches in windows titles and bars in Plasma 5 when compositing is enabled. (penguin)
+# Fixed by revert this upstream commit: 
+# https://cgit.freedesktop.org/xorg/driver/xf86-video-ati/commit/?id=274703087f80342f51fa69c935bb9a1cb0c4ae47
+Patch14:  fix-glitches-on-ati-aka-glamor-revert.patch
 # (tpg) this is needed to get VDPAU works out of box
 Requires:	%{_lib}vdpau-driver-r600
 Requires:	%{_lib}vdpau-driver-radeonsi
@@ -43,6 +47,7 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 %setup -qn xf86-video-ati-%{version}
 %patch10 -p1 -b .lvds
 %patch13 -p1 -b .def
+%patch14 -p0
 libtoolize --force
 aclocal
 autoheader
