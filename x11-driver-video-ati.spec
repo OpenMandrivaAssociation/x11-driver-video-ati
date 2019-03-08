@@ -31,6 +31,7 @@ Suggests:	radeon-firmware
 
 Patch10:	radeon-6.12.2-lvds-default-modes.patch
 Patch13:	fix-default-modes.patch
+Patch14:  fix-glitches-on-ati-aka-glamor-revert.patch
 # (tpg) this is needed to get VDPAU works out of box
 Requires:	%{_lib}vdpau-driver-r600
 Requires:	%{_lib}vdpau-driver-radeonsi
@@ -43,6 +44,7 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 %setup -qn xf86-video-ati-%{version}
 %patch10 -p1 -b .lvds
 %patch13 -p1 -b .def
+%patch14 -p0
 libtoolize --force
 aclocal
 autoheader
