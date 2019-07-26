@@ -1,0 +1,63 @@
+From d1d8e3c8d0a0a0394d395eba171460501745209b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Michel=20D=C3=A4nzer?= <michel.daenzer@amd.com>
+Date: Wed, 24 Apr 2019 12:25:39 +0200
+Subject: [PATCH 1/2] Retry get_fb_ptr in get_fb
+
+If get_fb_ptr returns NULL, try again after pixmap_get_handle, it should
+work then.
+
+Fixes spurious Present page flipping failures using "normal" pixmaps
+which aren't shared with direct rendering clients, e.g. with a
+compositor using the RENDER extension.
+
+Bugzilla: https://bugs.freedesktop.org/110417
+(Ported from amdgpu commit bf61e6d7ac1a5754b1026d7f80acf25ef622c491)
+Reviewed-by: Alex Deucher <alexander.deucher@amd.com>
+---
+ src/radeon.h | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
+
+diff --git a/src/radeon.h b/src/radeon.h
+index 74454c30..008a59f3 100644
+--- a/src/radeon.h
++++ b/src/radeon.h
+@@ -877,21 +877,22 @@ static inline struct drmmode_fb*
+ radeon_pixmap_get_fb(PixmapPtr pix)
+ {
+     struct drmmode_fb **fb_ptr = radeon_pixmap_get_fb_ptr(pix);
+-
+-    if (!fb_ptr)
+-	return NULL;
+-
+-    if (!*fb_ptr) {
+-	uint32_t handle;
+-
+-	if (radeon_get_pixmap_handle(pix, &handle)) {
+-	    ScrnInfoPtr scrn = xf86ScreenToScrn(pix->drawable.pScreen);
+-	    RADEONEntPtr pRADEONEnt = RADEONEntPriv(scrn);
+-
+-	    *fb_ptr = radeon_fb_create(scrn, pRADEONEnt->fd, pix->drawable.width,
+-				       pix->drawable.height, pix->devKind,
+-				       handle);
+-	}
++    uint32_t handle;
++
++    if (fb_ptr && *fb_ptr)
++	return *fb_ptr;
++	
++    if (radeon_get_pixmap_handle(pix, &handle)) {
++	ScrnInfoPtr scrn = xf86ScreenToScrn(pix->drawable.pScreen);
++	RADEONEntPtr pRADEONEnt = RADEONEntPriv(scrn);
++
++	if (!fb_ptr)
++	    fb_ptr = radeon_pixmap_get_fb_ptr(pix);
++
++	*fb_ptr = radeon_fb_create(scrn, pRADEONEnt->fd,
++				   pix->drawable.width,
++				   pix->drawable.height, pix->devKind,
++				   handle);
+     }
+ 
+     return *fb_ptr;
+-- 
+2.21.0
