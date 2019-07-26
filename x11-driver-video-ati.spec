@@ -34,6 +34,7 @@ Patch13:	fix-default-modes.patch
 # Fix for display corruption caused by patch applied to xserver
 # https://gitlab.freedesktop.org/xorg/xserver/issues/842
 Patch14:  dri3-Always-flush-glamor-before-sharing-pixmap-stora.patch
+Patch15:  Retry-get_fb_ptr-in-get_fb.patch
 # (tpg) this is needed to get VDPAU works out of box
 Requires:	%{_lib}vdpau-driver-r600
 Requires:	%{_lib}vdpau-driver-radeonsi
@@ -47,6 +48,7 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 %patch10 -p1 -b .lvds
 %patch13 -p1 -b .def
 %patch14 -p1
+%patch15 -p1
 libtoolize --force
 aclocal
 autoheader
