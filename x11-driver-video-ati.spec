@@ -43,8 +43,6 @@ x11-driver-video-ati is the X.org driver for ATI Technologies.
 %setup -qn xf86-video-ati-%{version}
 %patch10 -p1 -b .lvds
 %patch13 -p1 -b .def
-%patch14 -p1
-%patch15 -p1
 libtoolize --force
 aclocal
 autoheader
