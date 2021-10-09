@@ -1,0 +1,50 @@
+From 3845392426e9798c1fb2a6fc5e97bf5dfd5c443d Mon Sep 17 00:00:00 2001
+From: Niclas Zeising <zeising@daemonic.se>
+Date: Tue, 14 Apr 2020 17:01:57 +0200
+Subject: [PATCH] Fix return value check of drmIoctl()
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+When the drmModeSetCursor2() call was replaced with bare drmIoctl() call in
+92df7097, a bug was introduced.  With the use of drmModeSetCursor2(),
+the return value from drmIoctl() (which calls ioctl()) were mangled, if
+they were negative, they were replaced by -errno by a wrapper function
+in xf86drMode.c in libdrm.  After replacing drmModeSetCursor2() with the
+call to drmIoctl(), this mangling no longer happens, and we need to
+explicitly check if the call to drmIoctl() fails, which is indicated by
+returning -1, and then why it failed, by checking errno.
+If the error indicated by errno is EINVAL, then we can't use the
+DRM_IOCTL_MODE_CURSOR2 ioctl(), and need to fall back to the
+DRM_IOCTL_MODE_CURSOR ioctl().
+
+This bug can manifest itself by an invisible hw cursor on systems where the
+DRM_IOCTL_MODE_CURSOR2 is not implemented by the graphics driver.
+
+Credit also to Alexey Dokuchaev for help with developing the fix and
+testing.
+
+This fixes #190
+
+Signed-off-by: Niclas Zeising <zeising@daemonic.se>
+Reviewed-by: Michel Dänzer <mdaenzer@redhat.com>
+---
+ src/drmmode_display.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/drmmode_display.c b/src/drmmode_display.c
+index 0e9e2474..72f96a0c 100644
+--- a/src/drmmode_display.c
++++ b/src/drmmode_display.c
+@@ -1275,7 +1275,7 @@ drmmode_show_cursor (xf86CrtcPtr crtc)
+ 	    arg.hot_y = yhot;
+ 
+ 	    ret = drmIoctl(pRADEONEnt->fd, DRM_IOCTL_MODE_CURSOR2, &arg);
+-	    if (ret == -EINVAL)
++	    if (ret == -1 && errno == EINVAL)
+ 		use_set_cursor2 = FALSE;
+ 	    else
+ 		return;
+-- 
+2.29.2
+

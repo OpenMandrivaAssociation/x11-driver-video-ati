@@ -9,12 +9,23 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	19.1.0
-Release:	1
+Release:	2
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
+# upstream git:
+Patch1:		0001-Fix-link-failure-with-gcc-10.patch
+Patch2:		0001-Handle-NULL-fb_ptr-in-pixmap_get_fb.patch
+Patch3:		0002-Don-t-crash-X-server-if-GPU-acceleration-is-not-avai.patch
+Patch4:		0004-Fix-return-value-check-of-drmIoctl.patch
+Patch5:		0005-ati-cleanup-terminology-to-use-primary-secondary.patch
+
+# Fedora patches:
+Patch10:	radeon-6.12.2-lvds-default-modes.patch
+Patch13:	fix-default-modes.patch
+
 BuildRequires:	pkgconfig(libdrm) >= 2.4.54
 BuildRequires:	pkgconfig(libdrm_radeon) >= 2.4.54
 BuildRequires:	x11-proto-devel >= 1.0.0
@@ -28,9 +39,6 @@ Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Conflicts:	xorg-x11-server < 7.0
 Conflicts:	x11-driver-video-ati_6.7
 Suggests:	radeon-firmware
-
-Patch10:	radeon-6.12.2-lvds-default-modes.patch
-Patch13:	fix-default-modes.patch
 # (tpg) this is needed to get VDPAU works out of box
 Requires:	%{_lib}vdpau-driver-r600
 Requires:	%{_lib}vdpau-driver-radeonsi
@@ -40,14 +48,9 @@ Requires:	%{_lib}dri-drivers-radeon
 x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 %prep
-%setup -qn xf86-video-ati-%{version}
-%patch10 -p1 -b .lvds
-%patch13 -p1 -b .def
-libtoolize --force
-aclocal
-autoheader
-automake -a
-autoconf
+%autosetup -n xf86-video-ati-%{version} -p1
+sed -i '/USE_XAA, 1/d' configure.ac
+autoreconf -ifs
 
 %build
 %configure --disable-static --enable-glamor
