@@ -8,19 +8,14 @@
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	19.1.0
-Release:	4
+Version:	22.0.0
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.bz2
 # upstream git:
-Patch1:		0001-Fix-link-failure-with-gcc-10.patch
-Patch2:		0001-Handle-NULL-fb_ptr-in-pixmap_get_fb.patch
-Patch3:		0002-Don-t-crash-X-server-if-GPU-acceleration-is-not-avai.patch
-Patch4:		0004-Fix-return-value-check-of-drmIoctl.patch
-Patch5:		0005-ati-cleanup-terminology-to-use-primary-secondary.patch
 
 # Fedora patches:
 Patch10:	radeon-6.12.2-lvds-default-modes.patch
