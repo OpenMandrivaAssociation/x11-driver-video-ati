@@ -13,7 +13,7 @@ Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
-URL:		http://xorg.freedesktop.org
+URL:		https://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.xz
 # upstream git:
 
