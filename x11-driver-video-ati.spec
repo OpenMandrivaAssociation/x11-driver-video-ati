@@ -44,7 +44,7 @@ Requires:	%{_lib}dri-drivers
 x11-driver-video-ati is the X.org driver for ATI Technologies.
 
 %prep
-%autosetup -n xf86-video-ati-%{version} -p1
+%autosetup -n xf86-video-ati-master -p1
 sed -i '/USE_XAA, 1/d' configure.ac
 autoreconf -ifs
 
