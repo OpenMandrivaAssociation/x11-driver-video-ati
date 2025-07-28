@@ -3,6 +3,7 @@
 # for example:
 # merge2pcitable.pl ati_pciids_csv src/pcidb/ati_pciids.csv pcitable > pcitable.new
 # - Anssi
+%define abi 25.0
 
 %define gitdate 20250724
 
@@ -59,8 +60,8 @@ autoreconf -ifs
 rm -rf %{buildroot}%{moduledir}/multimedia/
 
 %files
-#{_libdir}/xorg/modules/drivers/radeon_drv.so
-#{_libdir}/xorg/modules/drivers/ati_drv.so
+%{_libdir}/xorg/modules/xlibre-%{abi}/drivers/radeon_drv.so
+%{_libdir}/xorg/modules/xlibre-%{abi}/drivers/ati_drv.so
 %{_datadir}/X11/xorg.conf.d/10-radeon.conf
 %{_mandir}/man4/ati.*
 %{_mandir}/man4/radeon.*
