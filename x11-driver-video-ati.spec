@@ -4,17 +4,19 @@
 # merge2pcitable.pl ati_pciids_csv src/pcidb/ati_pciids.csv pcitable > pcitable.new
 # - Anssi
 
-%define gitdate %nil
+%define gitdate 20250724
 
 Name:		x11-driver-video-ati
 Epoch:		1
-Version:	22.0.0
+Version:	22.0.0.%{gitdate}
 Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
 URL:		https://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.xz
+# Use maintainded xlibre version instead of deprecated freedesktop (AP)
+Source0:  https://github.com/X11Libre/xf86-video-ati/archive/refs/heads/xf86-video-ati-master-%{gitdate}.tar.gz
+#Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-ati-%{version}.tar.xz
 # upstream git:
 
 # Fedora patches:
@@ -35,9 +37,8 @@ Conflicts:	xorg-x11-server < 7.0
 Conflicts:	x11-driver-video-ati_6.7
 Suggests:	radeon-firmware
 # (tpg) this is needed to get VDPAU works out of box
-Requires:	%{_lib}vdpau-driver-r600
-Requires:	%{_lib}vdpau-driver-radeonsi
-Requires:	%{_lib}dri-drivers-radeon
+Requires:	%{_lib}vdpau-drivers
+Requires:	%{_lib}dri-drivers
 
 %description
 x11-driver-video-ati is the X.org driver for ATI Technologies.
