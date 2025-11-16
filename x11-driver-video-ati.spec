@@ -10,7 +10,7 @@
 Name:		x11-driver-video-ati
 Epoch:		1
 Version:	22.0.0.3
-Release:	1
+Release:	2
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
@@ -37,8 +37,6 @@ Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Conflicts:	xorg-x11-server < 7.0
 Conflicts:	x11-driver-video-ati_6.7
 Suggests:	radeon-firmware
-# (tpg) this is needed to get VDPAU works out of box
-Requires:	%{_lib}vdpau-drivers
 Requires:	%{_lib}dri-drivers
 
 %description
