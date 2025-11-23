@@ -8,9 +8,8 @@
 #define gitdate 20250724
 
 Name:		x11-driver-video-ati
-Epoch:		1
-Version:	22.0.0.3
-Release:	2
+Version:	22.0.0.4
+Release:	1
 Summary:	X.org driver for ATI Technologies
 Group:		System/X11
 License:	MIT
