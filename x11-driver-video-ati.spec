@@ -23,6 +23,11 @@ Source0:  https://github.com/X11Libre/xf86-video-ati/archive/refs/tags/xlibre-xf
 Patch10:	radeon-6.12.2-lvds-default-modes.patch
 Patch13:	fix-default-modes.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(libdrm) >= 2.4.54
 BuildRequires:	pkgconfig(libdrm_radeon) >= 2.4.54
 BuildRequires:	x11-proto-devel >= 1.0.0
